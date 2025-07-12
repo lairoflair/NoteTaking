@@ -13,22 +13,28 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.lairoflair.pictureurl.ui.theme.PictureURLTheme
 import com.lairoflair.pictureurl.ui.screen.notetaking.NoteTakingScreen
+import androidx.compose.foundation.layout.systemBarsPadding
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContent {
             PictureURLTheme {
-                NoteTakingScreen()
-                Scaffold( modifier = Modifier.fillMaxSize() ) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                Scaffold( modifier = Modifier
+                    .fillMaxSize()
+                    .systemBarsPadding()
+                ) { innerPadding ->
+                    NoteTakingScreen(
+//                        modifier = Modifier.padding(innerPadding)
                     )
+//                    Greeting(
+//                        name = "Android",
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
                 }
             }
-
         }
     }
 }
