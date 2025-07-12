@@ -4,5 +4,7 @@ import androidx.compose.runtime.Composable
 
 @Composable
 fun NoteTakingScreen(){
-    val text: string
+    
+    var fileName by remember { mutableStateOf("") }
+    var noteContent by remember { mutableStateOf("") }
 }
