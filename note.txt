@@ -1,0 +1,73 @@
+package com.lairoflair.pictureurl.ui.screen.notetaking
+
+import android.content.Context
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
+import java.io.File
+
+@Composable
+fun NoteTakingScreen() {
+    val context = LocalContext.current
+
+    var filename by remember { mutableStateOf("") }
+    var noteText by remember { mutableStateOf("") }
+    var savedNotes by remember { mutableStateOf(listOf<String>()) }
+
+    Column(modifier = Modifier.padding(16.dp)) {
+        TextField(
+            value = filename,
+            onValueChange = { filename = it },
+            label = { Text("File Name (e.g. mynotes.txt)") },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        TextField(
+            value = noteText,
+            onValueChange = { noteText = it },
+            label = { Text("Note") },
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Button(onClick = {
+            if (filename.isNotBlank()) {
+                saveNoteToFile(context, filename, noteText)
+                savedNotes = readNotesFromFile(context, filename)
+                noteText = ""
+            }
+        }) {
+            Text("Save Note")
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text("Saved Notes in $filename:", style = MaterialTheme.typography.titleMedium)
+        Spacer(modifier = Modifier.height(4.dp))
+        savedNotes.forEach {
+            Text("- $it")
+        }
+    }
+}
+
+// Helper functions
+
+fun saveNoteToFile(context: Context, fileName: String, note: String) {
+    val file = File(context.filesDir, fileName)
+    file.appendText("$note\n")
+}
+
+fun readNotesFromFile(context: Context, fileName: String): List<String> {
+    val file = File(context.filesDir, fileName)
+    return if (file.exists()) {
+        file.readLines()
+    } else {
+        emptyList()
+    }
+}
