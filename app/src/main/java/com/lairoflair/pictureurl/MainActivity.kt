@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.lairoflair.pictureurl.ui.theme.PictureURLTheme
+import com.lairoflair.pictureurl.ui.screen.notetaking.NoteTakingScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
