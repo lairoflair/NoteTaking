@@ -34,8 +34,14 @@ Column(modifier = Modifier.padding(16.dp)) {
         Spacer(modifier = Modifier.height(8.dp))
         Button(onClick = {
             // Handle save action
+            saveNote(context, fileName, noteContent)
         }) {
             Text("Save Note")
         }
     }
+}
+
+fun saveNote(context: Context, fileName: String, noteContent: String) {
+    val file = File(context.filesDir, "$fileName.txt")
+    file.writeText(noteContent)
 }
