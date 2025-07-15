@@ -29,7 +29,7 @@ fun HomeScreen(
 
             files.forEach { file ->
                 Button(
-                    onClick = { onNoteClick(file.name) },
+                    onClick = { onNoteClick(file.nameWithoutExtension) },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(vertical = 4.dp)

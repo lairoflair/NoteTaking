@@ -25,7 +25,13 @@ fun NoteTakingScreen(
     var noteContent by remember { mutableStateOf("") }
 
     LaunchedEffect(givenFileName) {
-
+        if (givenFileName != null) {
+            val file = File(context.filesDir, "$givenFileName.txt")
+            noteContent = file.readText()
+        }
+        else {
+            noteContent = ""
+        }
     }
 
 Column(modifier = Modifier.padding(16.dp)) {
@@ -62,6 +68,8 @@ Column(modifier = Modifier.padding(16.dp)) {
 }
 
 fun saveNote(context: Context, fileName: String, noteContent: String) {
+
     val file = File(context.filesDir, "$fileName.txt")
     file.writeText(noteContent)
+
 }
