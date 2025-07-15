@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.lairoflair.pictureurl.ui.theme.PictureURLTheme
 import com.lairoflair.pictureurl.ui.screen.notetaking.NoteTakingScreen
 import androidx.compose.foundation.layout.systemBarsPadding
+import com.lairoflair.pictureurl.ui.navigation.NoteAppNavigation
 
 
 class MainActivity : ComponentActivity() {
@@ -25,8 +26,9 @@ class MainActivity : ComponentActivity() {
                 Scaffold( modifier = Modifier
                     .fillMaxSize()
                     .systemBarsPadding()
-                ) { innerPadding ->
-                    NoteTakingScreen(
+                )
+                { innerPadding ->
+                    NoteAppNavigation(
 //                        modifier = Modifier.padding(innerPadding)
                     )
 //                    Greeting(
