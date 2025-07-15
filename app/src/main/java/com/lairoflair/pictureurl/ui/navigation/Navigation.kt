@@ -15,13 +15,15 @@ fun NoteAppNavigation() {
     NavHost(navController = navController, startDestination = "home") {
         composable("home") {
             HomeScreen(
-                onNewNoteClick = { navController.navigate("new_note") }
+                onNewNoteClick = { navController.navigate("new_note") },
+                onNoteClick = { fileName -> navController.navigate("new_note/$fileName")}
             )
         }
-//        composable("new_note") {
-//            NoteTakingScreen(
-////                onBack = { navController.popBackStack() }
-//            )
-//        }
+        composable("new_note") {
+            NoteTakingScreen(
+                onBack = { navController.popBackStack() },
+                backHome = { navController.navigate("home")}
+            )
+        }
     }
 }

@@ -8,15 +8,34 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import java.io.File
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 
 @Composable
-fun NoteTakingScreen(){
+fun NoteTakingScreen(
+    onBack: () -> Unit = {},
+    backHome: () -> Unit = {},
+    givenFileName: String? = null,
+    ){
     val context = LocalContext.current
 
-    var fileName by remember { mutableStateOf("") }
+    var fileName by remember { mutableStateOf(givenFileName ?: "") }
     var noteContent by remember { mutableStateOf("") }
 
+    LaunchedEffect(givenFileName) {
+
+    }
+
 Column(modifier = Modifier.padding(16.dp)) {
+        IconButton(onClick = onBack) {
+            Icon(
+                imageVector = Icons.Filled.ArrowBack,
+                contentDescription = "Back"
+            )
+        }
+        Spacer(modifier = Modifier.height(16.dp))
         TextField(
             value = fileName,
             onValueChange = { fileName = it },
@@ -35,6 +54,7 @@ Column(modifier = Modifier.padding(16.dp)) {
         Button(onClick = {
             // Handle save action
             saveNote(context, fileName, noteContent)
+            backHome()
         }) {
             Text("Save Note")
         }
