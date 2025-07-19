@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Picture URL"
+rootProject.name = "NoteTaking"
 include(":app")
  
