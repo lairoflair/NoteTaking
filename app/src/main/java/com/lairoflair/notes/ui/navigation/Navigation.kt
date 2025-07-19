@@ -1,11 +1,11 @@
-package com.lairoflair.pictureurl.ui.navigation
+package com.lairoflair.notes.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.lairoflair.pictureurl.ui.screen.home.HomeScreen
-import com.lairoflair.pictureurl.ui.screen.notetaking.NoteTakingScreen
+import com.lairoflair.notes.ui.screen.home.HomeScreen
+import com.lairoflair.notes.ui.screen.notetaking.NoteTakingScreen
 
 
 @Composable

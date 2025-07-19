@@ -1,4 +1,4 @@
-package com.lairoflair.pictureurl
+package com.lairoflair.notes
 
 import org.junit.Test
 

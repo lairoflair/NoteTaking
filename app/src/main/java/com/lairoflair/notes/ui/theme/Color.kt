@@ -1,4 +1,4 @@
-package com.lairoflair.pictureurl.ui.theme
+package com.lairoflair.notes.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
