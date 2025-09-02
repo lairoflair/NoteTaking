@@ -1,0 +1,4 @@
+Recover notes from db if note deleted thru file manager and not by swipe
+Search Bar
+Add multi user
+Add picture upload?

@@ -1,20 +1,22 @@
 package com.lairoflair.notes
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.lairoflair.notes.ui.theme.PictureURLTheme
-import androidx.compose.foundation.layout.systemBarsPadding
 import com.lairoflair.notes.ui.navigation.NoteAppNavigation
+import com.lairoflair.notes.ui.theme.PictureURLTheme
 
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        enableEdgeToEdge()
@@ -24,14 +26,9 @@ class MainActivity : ComponentActivity() {
                     .fillMaxSize()
                     .systemBarsPadding()
                 )
-                { innerPadding ->
-                    NoteAppNavigation(
-//                        modifier = Modifier.padding(innerPadding)
-                    )
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
+
+                {
+                    NoteAppNavigation()
                 }
             }
         }
